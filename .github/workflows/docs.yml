@@ -1,0 +1,61 @@
+name: Build & Publish Docs
+
+on:
+  push:
+    tags:
+      - 'v*'
+    branches:
+      - master
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Install LDoc
+        run: |
+          sudo apt-get install -y lua5.4 luarocks
+          sudo luarocks install ldoc
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Generate docs
+        run: |
+          if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            VERSION="${{ github.ref_name }}"
+            mkdir -p ${{ github.workspace }}/gh-pages/$VERSION
+            ldoc -c docs/config.ld -d ${{ github.workspace }}/gh-pages/$VERSION .
+          else
+            ldoc -c docs/config.ld -d ${{ github.workspace }}/gh-pages .
+          fi
+
+      - name: Generate versions.json
+        run: ls -d gh-pages/v*/ | sed 's|gh-pages/||;s|/||' | jq -R . | jq -s . > gh-pages/versions.json
+
+      - name: Copy over version.js
+        run: |
+          mkdir -p gh-pages/scripts
+          cp docs/version.js gh-pages/scripts/version.js
+
+      - name: Script Injection for Dropdown
+        run: |
+          find ${{ github.workspace }}/gh-pages/ -name "*.html" | xargs sed -i 's|</body>|<script src="/${{ github.event.repository.name }}/scripts/version.js"></script></body>|'
+
+      - name: Commit and push to gh-pages
+        run: |
+          cd gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "docs: add/update ${{ github.ref_name }}"
+          git push
