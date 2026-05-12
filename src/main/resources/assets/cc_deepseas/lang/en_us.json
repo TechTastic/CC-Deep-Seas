@@ -1,0 +1,13 @@
+{
+  "itemGroup.cc_deepseas": "Example Mod Tab",
+  "block.cc_deepseas.example_block": "Example Block",
+  "item.cc_deepseas.example_item": "Example Item",
+
+  "cc_deepseas.configuration.title": "CC: Deep Seas Configs",
+  "cc_deepseas.configuration.section.cc_deepseas.common.toml": "CC: Deep Seas Configs",
+  "cc_deepseas.configuration.section.cc_deepseas.common.toml.title": "CC: Deep Seas Configs",
+  "cc_deepseas.configuration.items": "Item List",
+  "cc_deepseas.configuration.logDirtBlock": "Log Dirt Block",
+  "cc_deepseas.configuration.magicNumberIntroduction": "Magic Number Text",
+  "cc_deepseas.configuration.magicNumber": "Magic Number"
+}
