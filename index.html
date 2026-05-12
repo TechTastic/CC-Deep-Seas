@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>CC: VR</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>CC: VR</h1>
+
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#The_Ballast_Vent___ballast_vent___peripheral_exposes_a_few_methods_as_well_as_keeping_the_original__fluid_handler__methods">The Ballast Vent (`ballast_vent`) peripheral exposes a few methods as well as keeping the original `fluid_handler` methods </a></li>
+<li><a href="#The_Water_Thruster___water_thruster___peripheral_exposes_a_few_methods_as_well_as_keeping_the_original__fluid_handler__methods">The Water Thruster (`water_thruster`) peripheral exposes a few methods as well as keeping the original `fluid_handler` methods </a></li>
+<li><a href="#The_Oxygenator___oxygenator___peripheral_exposes_a_few_methods">The Oxygenator (`oxygenator`) peripheral exposes a few methods </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>Peripherals</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>Peripherals</code></h1>
+<p>CC: Deep Seas provides a few new peripherals for Create: Deep Seas mechanics!</p>
+<p>
+
+</p>
+
+
+<h2><a href="#The_Ballast_Vent___ballast_vent___peripheral_exposes_a_few_methods_as_well_as_keeping_the_original__fluid_handler__methods">The Ballast Vent (`ballast_vent`) peripheral exposes a few methods as well as keeping the original `fluid_handler` methods </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#isAnyHolesFaceSubmerged">isAnyHolesFaceSubmerged ()</a></td>
+	<td class="summary">Determines whether any faces of the vent are submerged in water.</td>
+	</tr>
+</table>
+<h2><a href="#The_Water_Thruster___water_thruster___peripheral_exposes_a_few_methods_as_well_as_keeping_the_original__fluid_handler__methods">The Water Thruster (`water_thruster`) peripheral exposes a few methods as well as keeping the original `fluid_handler` methods </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#getThrust">getThrust ()</a></td>
+	<td class="summary">Gets the currently output thrust if the thruster.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getScaledThrust">getScaledThrust ()</a></td>
+	<td class="summary">Gets the scaled output thrust of the thruster.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getAirflow">getAirflow ()</a></td>
+	<td class="summary">Gets the airflow of the thruster.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getScaledAirflow">getScaledAirflow ()</a></td>
+	<td class="summary">Gets the scaled airflow of the thruster.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getCurrentAirPressure">getCurrentAirPressure ()</a></td>
+	<td class="summary">Gets the current air pressure of the thruster.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isActive">isActive ()</a></td>
+	<td class="summary">Determines whether the thruster is active.</td>
+	</tr>
+</table>
+<h2><a href="#The_Oxygenator___oxygenator___peripheral_exposes_a_few_methods">The Oxygenator (`oxygenator`) peripheral exposes a few methods </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#getCurrentSubLevelID">getCurrentSubLevelID ()</a></td>
+	<td class="summary">Gets the current Sub-Level ID of the Sub-Level</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getCompartments">getCompartments ()</a></td>
+	<td class="summary">Gets the current compartment data of the Sub-Level.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="The_Ballast_Vent___ballast_vent___peripheral_exposes_a_few_methods_as_well_as_keeping_the_original__fluid_handler__methods"></a>The Ballast Vent (`ballast_vent`) peripheral exposes a few methods as well as keeping the original `fluid_handler` methods </h2>
+
+            <h3>Usage:</h3>
+            <pre class="example"><span class="keyword">local</span> vent = peripheral.<span class="function-name">wrap</span>(<span class="string">"left"</span>) <span class="comment">-- given the Vent is to the left of the computer</span></pre>
+    <dl class="function">
+    <dt>
+    <a name = "isAnyHolesFaceSubmerged"></a>
+    <strong>isAnyHolesFaceSubmerged ()</strong>
+    </dt>
+    <dd>
+    Determines whether any faces of the vent are submerged in water.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        Whether any faces of the vent are submerged in water.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> vent.<span class="function-name">isAnyHolesFaceSubmerged</span>() <span class="keyword">then</span>
+   <span class="global">print</span>(<span class="string">"The vent is submerged in water!"</span>)
+<span class="keyword">else</span>
+   <span class="global">print</span>(<span class="string">"The vent is not submerged in water."</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="The_Water_Thruster___water_thruster___peripheral_exposes_a_few_methods_as_well_as_keeping_the_original__fluid_handler__methods"></a>The Water Thruster (`water_thruster`) peripheral exposes a few methods as well as keeping the original `fluid_handler` methods </h2>
+
+            <h3>Usage:</h3>
+            <pre class="example"><span class="keyword">local</span> thruster = peripheral.<span class="function-name">wrap</span>(<span class="string">"left"</span>) <span class="comment">-- given the Thruster is to the left of the computer</span></pre>
+    <dl class="function">
+    <dt>
+    <a name = "getThrust"></a>
+    <strong>getThrust ()</strong>
+    </dt>
+    <dd>
+    Gets the currently output thrust if the thruster.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        The currently output thrust.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="global">print</span>(<span class="string">"Thruster: "</span> .. <span class="global">tostring</span>(thruster.<span class="function-name">getThrust</span>()))</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "getScaledThrust"></a>
+    <strong>getScaledThrust ()</strong>
+    </dt>
+    <dd>
+    Gets the scaled output thrust of the thruster.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        The scaled output thrust.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="global">print</span>(<span class="string">"Scaled Thruster: "</span> .. <span class="global">tostring</span>(thruster.getScaledThrust</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "getAirflow"></a>
+    <strong>getAirflow ()</strong>
+    </dt>
+    <dd>
+    Gets the airflow of the thruster.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        The airflow of the thruster.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="global">print</span>(<span class="string">"Airflow: "</span> .. <span class="global">tostring</span>(thruster.<span class="function-name">getAirflow</span>()))</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "getScaledAirflow"></a>
+    <strong>getScaledAirflow ()</strong>
+    </dt>
+    <dd>
+    Gets the scaled airflow of the thruster.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        The scaled airflow of the thruster.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="global">print</span>(<span class="string">"Scaled Airflow: "</span> .. <span class="global">tostring</span>(thruster.<span class="function-name">getScaledAirflow</span>()))</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "getCurrentAirPressure"></a>
+    <strong>getCurrentAirPressure ()</strong>
+    </dt>
+    <dd>
+    Gets the current air pressure of the thruster.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        The current air pressure of the thruster.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="global">print</span>(<span class="string">"Current Air Pressure: "</span> .. <span class="global">tostring</span>(thruster.<span class="function-name">getCurrentAirPressure</span>()))</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "isActive"></a>
+    <strong>isActive ()</strong>
+    </dt>
+    <dd>
+    Determines whether the thruster is active.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        Whether the thruster is active.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> thruster.<span class="function-name">isActive</span>() <span class="keyword">then</span>
+   <span class="global">print</span>(<span class="string">"The thruster is active!"</span>)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="The_Oxygenator___oxygenator___peripheral_exposes_a_few_methods"></a>The Oxygenator (`oxygenator`) peripheral exposes a few methods </h2>
+
+            <h3>Usage:</h3>
+            <pre class="example"><span class="keyword">local</span> oxygenator = peripheral.<span class="function-name">wrap</span>(<span class="string">"left"</span>) <span class="comment">-- given the Oxygenator is to the left of the computer</span></pre>
+    <dl class="function">
+    <dt>
+    <a name = "getCurrentSubLevelID"></a>
+    <strong>getCurrentSubLevelID ()</strong>
+    </dt>
+    <dd>
+    Gets the current Sub-Level ID of the Sub-Level
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        The current Sub-Level ID of the Sub-Level.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="global">print</span>(<span class="string">"Current Sub-Level ID: "</span> .. oxygenator.<span class="function-name">getCurrentSubLevelID</span>())</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "getCompartments"></a>
+    <strong>getCompartments ()</strong>
+    </dt>
+    <dd>
+    Gets the current compartment data of the Sub-Level.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">array[table]</span></span>
+        The current compartment data of the Sub-Level.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> compartments = oxygenator.<span class="function-name">getCompartments</span>()
+<span class="keyword">for</span> i, compartment <span class="keyword">in</span> <span class="global">pairs</span>(compartments) <span class="keyword">do</span>
+   <span class="global">print</span>(<span class="string">"Compartment "</span> .. i .. <span class="string">":"</span>)
+   <span class="global">print</span>(<span class="string">"\tAnchor: "</span> .. <span class="global">tostring</span>(compartment.anchor)) <span class="comment">-- <code>anchor</code> is a <code>vector</code>
+</span>   <span class="global">print</span>(<span class="string">"\tInternals:"</span>)
+   <span class="keyword">for</span> k, internal <span class="keyword">in</span> <span class="global">pairs</span>(compartment.internal) <span class="keyword">do</span>
+       <span class="global">print</span>(<span class="string">"\t\t"</span> .. <span class="global">tostring</span>(internal)) <span class="comment">-- <code>internal</code> is a list of <code>vector</code>s
+</span>   <span class="keyword">end</span>
+   <span class="global">print</span>(<span class="string">"\tHull:"</span>)
+   <span class="keyword">for</span> k, hull <span class="keyword">in</span> <span class="global">pairs</span>(compartment.hull) <span class="keyword">do</span>
+       <span class="global">print</span>(<span class="string">"\t\t"</span> .. <span class="global">tostring</span>(hull)) <span class="comment">-- <code>hull</code> is a list of <code>vector</code>s
+</span>   <span class="keyword">end</span>
+  <span class="keyword">if</span> compartment.sealed <span class="keyword">then</span>
+       <span class="global">print</span>(<span class="string">"\tCompartment is sealed."</span>)
+   <span class="keyword">else</span>
+       <span class="global">print</span>(<span class="string">"\tCompartment is not sealed."</span>)
+   <span class="keyword">end</span>
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-05-12 14:45:25 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+<script src="/CC-Deep-Seas/scripts/version.js"></script></body>
+</html>
