@@ -4,7 +4,7 @@
 
 --- The Ballast Vent (`ballast_vent`) peripheral exposes a few methods as well as keeping the original `fluid_handler` methods.
 --
--- @submodule ballast_vent
+-- @section ballast_vent
 -- @usage local vent = peripheral.wrap("left") -- given the Vent is to the left of the computer
 
 --- Determines whether any faces of the vent are submerged in water.
@@ -19,7 +19,7 @@
 
 --- The Water Thruster (`water_thruster`) peripheral exposes a few methods as well as keeping the original `fluid_handler` methods.
 --
--- @submodule water_thruster
+-- @section water_thruster
 -- @usage local thruster = peripheral.wrap("left") -- given the Thruster is to the left of the computer
 
 --- Gets the currently output thrust if the thruster.
@@ -57,7 +57,7 @@
 
 --- The Oxygenator (`oxygenator`) peripheral exposes a few methods.
 --
--- @submodule creative_oxygenator
+-- @section creative_oxygenator
 -- @usage local oxygenator = peripheral.wrap("left") -- given the Oxygenator is to the left of the computer
 
 --- Gets the current Sub-Level ID of the Sub-Level
