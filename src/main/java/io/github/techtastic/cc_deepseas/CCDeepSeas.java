@@ -1,6 +1,8 @@
 package io.github.techtastic.cc_deepseas;
 
 import com.maxenonyme.createsubmarine.CreateSubmarine;
+import com.maxenonyme.createsubmarine.config.HullStrengthConfig;
+import dan200.computercraft.api.detail.VanillaDetailRegistries;
 import dan200.computercraft.api.peripheral.PeripheralCapability;
 import io.github.techtastic.cc_deepseas.peripheral.BallastVentPeripheral;
 import io.github.techtastic.cc_deepseas.peripheral.HullControllerPeripheral;
@@ -13,6 +15,8 @@ import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.ModContainer;
+
+import java.util.Map;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(CCDeepSeas.MODID)
@@ -27,6 +31,13 @@ public class CCDeepSeas {
     public CCDeepSeas(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::registerCapabilities);
+
+        VanillaDetailRegistries.BLOCK_IN_WORLD.addProvider((data, object) ->
+                HullStrengthConfig.getFor(object.state()).ifPresent(config -> data.put("hullStrength", Map.of(
+                        "maxDepthY", config.maxDepthY(),
+                        "implosionChance", config.implosionChance()
+                )))
+        );
     }
 
     private void registerCapabilities(RegisterCapabilitiesEvent event) {
