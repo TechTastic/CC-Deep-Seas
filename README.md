@@ -5,19 +5,19 @@
 
 ## Peripherals
 - Ballast Vent
-- Kept Fluid Handler methods
-- Added new `isAnyHolesFaceSubmerged` method
+  - Kept Fluid Handler methods
+  - Added new `isAnyHolesFaceSubmerged` method
 - Water Thruster
-- Kept Fluid Handler methods
-- Added new `getThrust` method
-- Added new `getScaledThrust` method
-- Added new `getAirflow` method
-- Added new `getAirflowScaling` method
-- Added new `getCurrentAirPressure` method
-- Added new `isActive` method
+  - Kept Fluid Handler methods
+  - Added new `getThrust` method
+  - Added new `getScaledThrust` method
+  - Added new `getAirflow` method
+  - Added new `getAirflowScaling` method
+  - Added new `getCurrentAirPressure` method
+  - Added new `isActive` method
 - Creative Oxygenator
-- Added new `getCurrentSubLevelID` method
-- Added new `getCompartments` method
+  - Added new `getCurrentSubLevelID` method
+  - Added new `getCompartments` method
 
 ## Extra Block Details
 This mod also adds the physics properties of blocks to any method calling to block details, such as `turtle.inspect()`.
