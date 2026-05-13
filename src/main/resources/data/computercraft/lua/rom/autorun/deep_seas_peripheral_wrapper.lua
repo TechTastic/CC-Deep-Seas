@@ -96,6 +96,16 @@
 --    end
 -- end
 
+--- Hull Strength Detail Provider
+--
+-- @section hull_strength_detail_provider
+-- @usage
+-- local success, details = turtle.inspect()
+-- if success and details.hullStrength then
+--     print("Max Depth: " .. details.maxDepthY)
+--     print("Implosion Chance: " .. details.implosionChance)
+-- end
+
 local native = peripheral.call
 
 peripheral.call = function(...)
