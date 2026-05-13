@@ -66,7 +66,5 @@ jobs:
       - name: Publish Mod
         if: inputs.publish-mod
         run: |
-          ./gradlew :fabric:modrinth
-          ./gradlew :neoforge:modrinth
-          ./gradlew :fabric:curseforge --no-configuration-cache
-          ./gradlew :neoforge:curseforge --no-configuration-cache
+          ./gradlew curseforge --no-configuration-cache
+          ./gradlew modrinth
